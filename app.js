@@ -34,12 +34,6 @@ app.post('/webhook', (req, res) => {
   console.log(msg)
 })
 
-// app.post('/webhook', (req, res) => { // reply block 
-//   let reply_token = req.body.events[0].replyToken
-//   reply(reply_token, 'Hello I love TESA')
-//   res.sendStatus(200)
-// })
-
 function push(msg) {
   let body = JSON.stringify({
     // push body
