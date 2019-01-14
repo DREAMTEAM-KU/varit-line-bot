@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser')
 const request = require('request')
 const express = require('express')
+const dialog = require('./dialog')
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -47,12 +48,20 @@ function push(msg) {
   curl('push', body)
 }
 
+function msgContain(msg) {
+  if (Object.keys(dialog).includes(msg)) {
+    msg = dialog[msg]
+  }
+  return msg
+}
+
 function reply(reply_token, msg) {
+  msg = msgContain(msg)
   let body = JSON.stringify({
     replyToken: reply_token,
     messages: [{
       type: 'text',
-      text: 'I reply you'
+      text: msg,
     }]
   })
   curl('reply', body)
