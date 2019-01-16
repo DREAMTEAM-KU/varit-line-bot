@@ -1,3 +1,11 @@
+const request = require("request");
+
+const HEADERS = {
+  "Content-Type": "application/json",
+  Authorization:
+    "Bearer {w6Ybsrc3xC9jWI8BCn8KlaxMGFsPMm64uEUaf63X5ZdycnD+7R49H3TEgItKTc5a2nVkHe/ouGabn76JzsAZug5T2HpsAanIzyGfnf+YUJvJQ/INhO12eOg5ULNaXWydXCJwoSDuYCFA3dn8eK3RfQdB04t89/1O/w1cDnyilFU=}"
+};
+
 function push(msg) {
   let body = JSON.stringify({
     // push body
@@ -48,3 +56,8 @@ function curl(method, body) {
     }
   );
 }
+
+module.exports = {
+  push,
+  reply
+};
