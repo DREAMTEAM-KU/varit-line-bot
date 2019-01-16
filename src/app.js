@@ -1,7 +1,7 @@
 const bodyParser = require("body-parser");
 const request = require("request");
 const express = require("express");
-const dialog = require("./dialog");
+const dialog = require("./db/dialog");
 
 const app = express();
 const port = process.env.PORT || 4000;
