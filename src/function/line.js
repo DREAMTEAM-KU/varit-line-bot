@@ -7,10 +7,10 @@ const HEADERS = {
     "Bearer {w6Ybsrc3xC9jWI8BCn8KlaxMGFsPMm64uEUaf63X5ZdycnD+7R49H3TEgItKTc5a2nVkHe/ouGabn76JzsAZug5T2HpsAanIzyGfnf+YUJvJQ/INhO12eOg5ULNaXWydXCJwoSDuYCFA3dn8eK3RfQdB04t89/1O/w1cDnyilFU=}"
 };
 
-function push(msg) {
+function push(msg, toUser) {
   let body = JSON.stringify({
     // push body
-    to: "U84499a6b6a18dddd28dc255e44a9b669",
+    to: toUser,
     messages: [
       {
         type: "text",
@@ -53,7 +53,9 @@ function curl(method, body) {
     },
     (err, res, body) => {
       console.log("status = " + res.statusCode);
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
     }
   );
 }

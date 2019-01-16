@@ -28,10 +28,20 @@ app.post("/webhook", (req, res) => {
   // reply block
   let reply_token = req.body.events[0].replyToken;
   let msg = req.body.events[0].message.text;
+  if (msg === "uid") {
+    reply(reply_token, req.body.events[0].source.userId);
+  }
   reply(reply_token, msg);
   // res.send(msg)
   res.sendStatus(200);
   console.log(msg);
+});
+
+app.post("/sendTo", (req, res) => {
+  const toUser = req.body.uid;
+  const msg = req.body.msg;
+  push(msg, toUser);
+  res.sendStatus(200);
 });
 
 app.listen(port, () => {
