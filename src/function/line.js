@@ -1,4 +1,5 @@
 const request = require("request");
+const dialog = require("../db/dialog");
 
 const HEADERS = {
   "Content-Type": "application/json",

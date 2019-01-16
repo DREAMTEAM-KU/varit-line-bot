@@ -1,6 +1,5 @@
 const bodyParser = require("body-parser");
 const express = require("express");
-const dialog = require("./db/dialog");
 
 const { push, reply } = require("./function/line");
 
